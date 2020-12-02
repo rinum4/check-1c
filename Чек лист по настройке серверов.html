@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)https://kb.1c.ru/articleView.jsp?id=88&print=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Технологические вопросы крупных внедрений</title>
+<link href="./Чек лист по настройке серверов_files/style.css" rel="stylesheet" type="text/css">
+<link href="./Чек лист по настройке серверов_files/style2.css" rel="stylesheet" type="text/css">
+<link href="./Чек лист по настройке серверов_files/content.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style2 {
+	color: #FF0000;
+	font-size: 10px;
+}
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.style3 {
+	color: #C10000;
+	font-weight: bold;
+	line-height: 30px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+
+h3.base01 {color:#601000}
+
+-->
+</style>
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 style="color:#999999;">
+	<span style="color: black; font-weight: normal;">
+		<a href="https://kb.1c.ru/">«« Рубрикатор</a> /
+	</span>
+	Просмотр статьи
+	<span style="color: black; font-weight: normal;">(ID: 88)</span>
+</h2>
+
+<script src="./Чек лист по настройке серверов_files/formatMess.js.Без названия" type="text/javascript"></script>
+
+<p style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 10pt;">
+	<b>Разделы рубрикатора:</b><br>
+
+
+
+
+
+
+	<b>
+		<img src="./Чек лист по настройке серверов_files/box_open.gif" width="16" height="16" alt="" align="absbottom" border="0" style="margin-top: 5px;"> /
+		
+		
+			
+			
+			<a href="https://kb.1c.ru/?hid=11%2C">Инструкции</a>
+			
+		
+	</b><br>
+
+
+</p>
+<p></p>
+
+<h1>
+	<img src="./Чек лист по настройке серверов_files/book_open.gif" width="16" height="16" alt="" border="0">
+	Check-list по настройке рабочих серверов в продукционной зоне
+</h1>
+<h3>Автор: Александр Морозов</h3>
+
+<div class="bord">
+	<h3 style="border-bottom: dashed 1px #dcdcdc; color:#696969; margin-top: 0px;">Краткое содержание:</h3>
+	При работе с информационными системами, построенными с использованием платформы 1С:Предприятие, возникает необходимость организовать рабочую площадку таким образом, чтобы на серверах этой площадки были выполнены все настройки, которые необходимы либо могут помочь при решении задач эксплуатации.<br>В этой статье приводится инструкция (check-list), который является рекомендуемым при настройке крупных информационных систем.<br>
+</div>
+
+<div class="bord" id="copytextbody">
+	<p style="margin-left:18.0pt;">
+	При работе с информационными системами, построенными с использованием платформы 1С:Предприятие, возникает необходимость организовать рабочую площадку таким образом, чтобы на серверах этой площадки были выполнены все настройки, которые необходимы либо могут помочь при решении задач эксплуатации.</p>
+<p style="margin-left:18.0pt;">
+	В этой статье приводится инструкция <a href="https://kb.1c.ru/articleView.jsp?id=88&amp;print=1#Check-list">check-list</a>, который является рекомендуемым при настройке крупных информационных систем.</p>
+<p style="margin-left:18.0pt;">
+	Также в статье приводится <a href="https://kb.1c.ru/articleView.jsp?id=88&amp;print=1#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2">набор скриптов</a>, которые оказались полезны при эскплуатации.</p>
+<p style="margin-left:18.0pt;">
+	&nbsp;</p>
+<p style="margin-left:18.0pt;">
+	&nbsp;</p>
+<h2 style="margin-left: 18pt;">
+	<a name="Check-list">Check-list</a></h2>
+<h3>
+	1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Настроен сбор технологических журналов на всех продукционных рабочих серверах с платформой 1С:Предприятие.</h3>
+<p style="margin-left:72.0pt;">
+	•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; директория ALL (события EXCP, PROC, CONN, SESN, CLSTR, SRVC, ADMIN);</p>
+<p style="margin-left:72.0pt;">
+	•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; директория CALLSCALL (события CALL, SCALL);</p>
+<p style="margin-left:72.0pt;">
+	•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Сбор дампов аварийных завершений процессов кластера.</p>
+<p style="margin-left:72.0pt;">
+	Настройка выполняется с помощью файла <a href="http://its.1c.ru/db/v83doc#bookmark:adm:TI000000393">logcfg.xml</a>.</p>
+<p style="margin-left:72.0pt;">
+	&nbsp;</p>
+<p style="margin-left:72.0pt;">
+	Пример настройки технологического журнала.</p>
+<blockquote>
+	<p style="margin-left:72.0pt;">
+		&lt;?xml version="1.0" encoding="UTF-8"?&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;config xmlns="http://v8.1c.ru/v8/tech-log"&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;dump create="true" location="C:\DUMPS" type="3" prntscrn="false" externaldump="1"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;log location="C:\LOGS\All" history="28"&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="EXCP"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="PROC"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="ADMIN"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="CONN"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="SESN"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="CLSTR"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="SRVC"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;property name="all"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;/log&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;log location="C:\LOGS\CallScall" history="28"&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="CALL"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="SCALL"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;property name="Context"&gt;</p>
+	<p style="margin-left:106.2pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:106.2pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="name" value=""/&gt;</p>
+	<p style="margin-left:106.2pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/property&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property name="all"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;/log&gt;&nbsp;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;/config&gt;</p>
+</blockquote>
+<p style="margin-left:72.0pt;">
+	&nbsp;</p>
+<p style="margin-left:72.0pt;">
+	В данном примере события CALL и SCALL собираются без контекстов, что в значительной мере сокращает объем собираемых журналов. Однако <a href="https://kb.1c.ru/articleView.jsp?id=86">в некоторых случаях</a> контексты необходимы.</p>
+<p style="margin-left:72.0pt;">
+	Тогда часть</p>
+<blockquote>
+	<p style="margin-left:72.0pt;">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&lt;property name="Context"&gt;</p>
+	<p style="margin-left:106.2pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:106.2pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="name" value=""/&gt;</p>
+	<p style="margin-left:106.2pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/property&gt;</p>
+</blockquote>
+<p style="margin-left:72.0pt;">
+	необходимо будет удалить.</p>
+<p style="margin-left:72.0pt;">
+	Обратите внимание, что history="28" указан равным 28 часам, что при достаточно интенсивной нагрузке может привести к сбору достаточно большого объема журналов.</p>
+<p style="margin-left:72.0pt;">
+	Если места на дисках не достаточно, лучше отказаться от журнала с CALL, SCALL, а сбор «основного» журнала "C:\LOGS\All"&nbsp;сократить до 12 часов.</p>
+<blockquote>
+	<p style="margin-left:72.0pt;">
+		&lt;?xml version="1.0" encoding="UTF-8"?&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;config xmlns="http://v8.1c.ru/v8/tech-log"&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;dump create="true" location="C:\DUMPS" type="3" prntscrn="false" externaldump="1"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;log location="C:\LOGS\All" history="12"&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="EXCP"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="PROC"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="ADMIN"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="CONN"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="SESN"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="CLSTR"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;event&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eq property="Name" value="SRVC"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/event&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+	<p style="margin-left:72.0pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property name="all"/&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;/log&gt;</p>
+	<p style="margin-left:72.0pt;">
+		&lt;/config&gt;</p>
+</blockquote>
+<p style="margin-left:72.0pt;">
+	&nbsp;</p>
+<p style="margin-left:72.0pt;">
+	Следует также настроить архивирование технологических журналов с последующим копированием на сетевой ресурс.</p>
+<ol>
+	<li value="2">
+		<h3>
+			Настроен сбор <a href="https://kb.1c.ru/articleView.jsp?id=74#%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20Performance%20Monitor%20%D0%B4%D0%BB%D1%8F%20Windows%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%BE%D0%B2">счетчиков Performance Monitor</a> на всех продукционных серверах. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+	</li>
+</ol>
+<p style="margin-left:36.0pt;">
+	Запуск счетчика добавлен в Task Schedule.</p>
+<ol>
+	<li value="3">
+		<h3>
+			Настроен Windows Error Reporting Service на процессы ragent, rmngr, rphost</h3>
+	</li>
+</ol>
+<p style="margin-left:18.0pt;">
+	Инструкция по настройки дампов <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/bb787181(v=vs.85).aspx">находится здесь</a>.</p>
+<ol>
+	<li value="4">
+		<h3>
+			На рабочих серверах есть только продукционные кластеры с продукционными базами.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; Другие (не рабочие) базы и кластеры должны отсутствовать.</p>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; «Исключением» из данного правила могут являться «обслуживающие» (хотя всё же продукционные) информационные базы, такие как:</p>
+<ul>
+	<li style="margin-left: 72pt;">
+		Центр Контроля Качества;</li>
+	<li style="margin-left: 72pt;">
+		Центр Управления Производительностью;</li>
+	<li style="margin-left: 72pt;">
+		Менеджер Сервиса;</li>
+	<li style="margin-left: 72pt;">
+		Агент Сервиса;</li>
+</ul>
+<p style="margin-left: 72pt;">
+	и&nbsp; т.п.</p>
+<p style="margin-left:36.0pt;">
+	Обратите внимание, что не должно быть</p>
+<ul>
+	<li style="margin-left: 72pt;">
+		развернутых копий продукционных информационных баз;</li>
+	<li style="margin-left: 72pt;">
+		тестовых информационных баз;</li>
+	<li style="margin-left: 72pt;">
+		информационных баз разработки.</li>
+</ul>
+<ol>
+	<li value="5">
+		<h3>
+			Выполнены <a href="https://kb.1c.ru/articleView.jsp?id=79#%D0%9F%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA">настройки перезапуска процессов по памяти</a> для всех серверов.</h3>
+	</li>
+</ol>
+<p style="margin-left:36.0pt;">
+	Ограничения по безопасному расходу памяти либо «По умолчанию», либо имеют такие значения, при которых они действительно могут сработать на конкретном оборудовании.</p>
+<p style="margin-left:36.0pt;">
+	Не должно быть установлено таких значений, которые «отключают»<a href="http://its.1c.ru/db/v83doc#bookmark:cs:TI000000158"> работу механизмов контроля потребления памяти на вызов</a>.</p>
+<ol>
+	<li value="6">
+		<h3>
+			Наличие утилит</h3>
+	</li>
+</ol>
+<ul>
+	<li style="margin-left: 72pt;">
+		<a href="https://technet.microsoft.com/ru-ru/sysinternals/bb896653.aspx">Process Explorer</a>;</li>
+	<li style="margin-left: 72pt;">
+		<a href="https://technet.microsoft.com/en-us/library/ff700229.aspx">RAMMap</a>;</li>
+	<li style="margin-left: 72pt;">
+		<a href="https://technet.microsoft.com/en-us/sysinternals/dd996900.aspx">ProcDump</a>.</li>
+</ul>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; в определенной директории, например, C:\Utils</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ярлык на эту директорию должен быть на рабочем столе.</p>
+<ol start="7">
+	<li>
+		<h3>
+			Наличие скриптов автоматизации в определенной директории.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Например, C:\Scripts</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ярлык на эту директорию должен быть на рабочем столе.</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://kb.1c.ru/articleView.jsp?id=88&amp;print=1#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2">Примеры скриптов</a> приведены в конце статьи.</p>
+<ol start="8">
+	<li>
+		<h3>
+			Настроена контрольная процедура «Контроль подключений» для всех продукционных баз в <a href="https://releases.1c.ru/project/ETP">Центре Контроля Качества</a>.</h3>
+	</li>
+	<li value="9">
+		<h3>
+			Настроена контрольная процедура «Контроль потребления памяти» для всех продукционных баз в Центре Контроля Качества.</h3>
+	</li>
+	<li>
+		<h3>
+			Настроен сбор данных по загруженности оборудования для всех серверов продукционной площадки в ЦКК из Мастера настройки в ЦКК.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; У пользователя ОС, от которого запущен rphost, вхождение в группу <a href="https://technet.microsoft.com/en-us/library/cc722184.aspx">Windows Performance Monitor Users</a>.</p>
+<ol start="11">
+	<li>
+		<h3>
+			Настроены оповещения в ЦКК</h3>
+	</li>
+</ol>
+<ul>
+	<li style="margin-left: 72pt;">
+		По месту на дисках для всех продукционных серверов: меньше 10% места за 5 минут;</li>
+	<li style="margin-left: 72pt;">
+		По памяти для всех продукционных серверов (кроме СУБД): меньше 200 Мб памяти за 5 минут;</li>
+	<li style="margin-left: 72pt;">
+		По CPU для всех продукционных серверов: более 90% за 5 минут;</li>
+	<li style="margin-left: 72pt;">
+		Для СУБД по превышению размера tempdb (SQL Tempdb Log Used Size (MB) [среднее]) более 70 Гб (нужно убедиться в снятом ограничении по размеру tempdb в настройках СУБД).</li>
+</ul>
+<ol start="12">
+	<li>
+		<h3>
+			Проведен успешный тест отправки e-mail или смс из рабочего Центра Контроля Качества.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Если тест успешно не выполняется (т.е. смс или письмо не приходят), но проверять наличие доступа к соответствующим серверам.</p>
+<ol>
+	<li value="13">
+		<h3>
+			На веб серверах настроен сбор access и error логов IIS или Apache.</h3>
+	</li>
+	<li>
+		<h3>
+			Настроены <a href="https://kb.1c.ru/articleView.jsp?id=13">регламентные процедуры</a>:</h3>
+	</li>
+</ol>
+<ul>
+	<li style="margin-left: 72pt;">
+		Обновление статистик;</li>
+	<li style="margin-left: 72pt;">
+		Очистка процедурного КЭШа;</li>
+	<li style="margin-left: 72pt;">
+		Дефрагментация индексов;</li>
+	<li style="margin-left: 72pt;">
+		Реиндексация таблиц базы данных;</li>
+	<li style="margin-left: 72pt;">
+		Создание бэкапов.</li>
+</ul>
+<ol>
+	<li value="15">
+		<h3>
+			Установлен Windows Performance Toolkit на всех рабочих (1С) Windows серверах.</h3>
+	</li>
+</ol>
+<p style="margin-left:36.0pt;">
+	Windows Performance Toolkit входит в комплект <a href="https://msdn.microsoft.com/ru-ru/windows/desktop/bg162891.aspx">Windows 8.1 SDK</a>.</p>
+<p style="margin-left:36.0pt;">
+	После установки проверяется возможность запустить Windows Performance Recorder с опцией “Resource Analysis”\”CPU Usage” на несколько секунд.</p>
+<ol>
+	<li value="16">
+		<h3>
+			Наличие <a href="http://its.1c.ru/db/v83doc#bookmark:adm:TI000000418">файла swpuser.ini</a> с указанием пользователя для рабочих процессов с соответствующими правами в ОС.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; При использовании файла swpuser.ini пользователь, от имени которого работает главный агент кластера (ragent), должен иметь административные права. Дополнительно следует обеспечить наличие этого пользователя в локальных политиках безопасности: Adjust memory quotas for a process (сюда обычно входит группа Администраторы) и Replace a process level token (обычно группа Администрторы сюда не входит). Необходимо помнить, что инсталятор не подготавливает почву для использования swpuser.ini. Поэтому для использования swpuser.ini все предлагаетя сделать руками: создать пользователей, дать им права и т. п. Важно, что пользователям, от которых запускаются рабочие процессы и менеджеры кластера, в Windows должен быть создан профиль. Он необходим для правильного размещения:</p>
+<ul>
+	<li>
+		каталога временных файлов;</li>
+	<li>
+		каталога данных приложения;</li>
+	<li>
+		переменных окружения.</li>
+</ul>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Наиболее простой способ создания профиля - однократный интерактивный вход.</p>
+<ol start="17">
+	<li>
+		<h3>
+			Наличие требований назначения функциональности для всех продукционных кластеров с двумя и более рабочими серверами</h3>
+	</li>
+</ol>
+<ul>
+	<li style="margin-left: 72pt;">
+		Для сервиса лицензирования;</li>
+	<li style="margin-left: 72pt;">
+		Для сервиса полнотекстового поиска данных;</li>
+	<li style="margin-left: 72pt;">
+		Для сервиса журнала регистрации.</li>
+</ul>
+<p style="margin-left:36.0pt;">
+	Должно быть явно указано расположение именно этих сервисов, т.к. их корректная работа зависит от расположения файлов кластера. При наличии нескольких рабочих серверов в кластере нужно не допускать возможность переезда этих сервисов между рабочими серверами.</p>
+<ol>
+	<li value="18">
+		<h3>
+			Имена пользователей, от которых рабочие процессы rphost работают с СУБД, в точности соответствуют именам информационных баз.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Лучше для каждой продукционной информационной базы создавать отдельного пользователя. Это нужно в первую очередь при расследовании каких-либо проблема на сервере СУБД. Если на сервере СУБД расположено более одной продукционной базы данных, может возникнуть необходимость максимально быстро расследовать проблему. При этом под рукой в отчетах или трассировках всегда будет имя пользователя, который в данный момент работает с сервером баз данных, как следствие будет и понимание, к какой именно информационной базе относится этот пользователь.</p>
+<ol start="19">
+	<li>
+		<h3>
+			Настроена утилита <a href="https://technet.microsoft.com/en-us/library/bb897557.aspx">BgInfo от SysInternals</a>.</h3>
+	</li>
+</ol>
+<p style="margin-left:36.0pt;">
+	Желательно на рабочем столе всегда видеть:</p>
+<ul>
+	<li style="margin-left: 72pt;">
+		Имя сервера;</li>
+	<li style="margin-left: 72pt;">
+		Объем места на дисках;</li>
+	<li style="margin-left: 72pt;">
+		Его сетевые адресы.</li>
+</ul>
+<ol start="20">
+	<li>
+		<h3>
+			План электропитания: Высокая производительность.</h3>
+	</li>
+</ol>
+<p>
+	В Control Panel\All Control Panel Items\Power Options &nbsp;необходимо указать "High Performance".</p>
+<ol start="21">
+	<li>
+		<h3>
+			Хотя бы один раз проведено тестовое восстановление из бэкапа с замером времени восстановления.</h3>
+	</li>
+	<li>
+		<h3>
+			Настроен пересчет итогов, перестроение агрегатов.</h3>
+	</li>
+	<li>
+		<h3>
+			Отсутствует лишняя регистрация изменений в планах обмена.</h3>
+	</li>
+	<li>
+		<h3>
+			Число процессов rphost адекватно решаемой кластром задачи.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Например, не установлена настройка 1 rphost на 1 информационную базу при наличии большого числа информационных баз в кластере серверов.</p>
+<ol start="25">
+	<li>
+		<h3>
+			Корректно сконфигурированные виртаульные машины.</h3>
+	</li>
+</ol>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;На виртуальных машинах обеспечено гарантированное выделение ресурсов, суммарный объем выданной оперативной памяти в виртуальных машинах, меньше объема имеющейся памяти на хосте.</p>
+<p>
+	&nbsp;</p>
+<ol start="26">
+	<li>
+		<h3>
+			Выполнены настройки в соответствие с <a href="http://disablessl3.com/">инструкциями</a>&nbsp;(http://disablessl3.com/)</h3>
+	</li>
+	<li>
+		<h3>
+			Выполнено отключение RC4 в соответствие с <a href="https://support.microsoft.com/en-us/kb/2868725">инструкциями</a>&nbsp;(https://support.microsoft.com/en-us/kb/2868725)</h3>
+	</li>
+	<li>
+		<h3>
+			Для работы системы «1С:Предприятие» c СУБД MS SQL Server</h3>
+	</li>
+</ol>
+<p>
+	требуется установленный SQL Server&nbsp;Native&nbsp;Client&nbsp;for SQL Server 2005 (и более старших версий Microsoft SQL Server). Проверка наличия установленного SQL Server&nbsp;Native&nbsp;Client&nbsp;осуществляется при выполнении следующих операций:</p>
+<p style="margin-left:60px;">
+	● создание информационной базы;</p>
+<p style="margin-left:60px;">
+	● загрузка информационной базы;</p>
+<p style="margin-left:60px;">
+	● обновление конфигурации базы данных.</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h2>
+	<a name="Примеры скриптов">Примеры скриптов.</a></h2>
+<h3>
+	Немедленно завершить приложения.</h3>
+<blockquote>
+	<p>
+		taskkill /F /IM ragent.exe</p>
+	<p>
+		taskkill /F /IM rmngr.exe</p>
+	<p>
+		taskkill /F /IM rphost.exe</p>
+	<p>
+		taskkill /F /IM httpd.exe</p>
+	<p>
+		taskkill /F /IM w3wp.exe</p>
+	<p>
+		taskkill /F /IM 1cv8c.exe</p>
+	<p>
+		taskkill /F /IM 1cv8.exe</p>
+</blockquote>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h3>
+	Получить дампы процессов.</h3>
+<p>
+	Этот скрипт должен выполняться из той же директории, в которой находится <a href="https://technet.microsoft.com/en-us/sysinternals/dd996900.aspx">procdump.exe</a></p>
+<blockquote>
+	<p>
+		@ echo off</p>
+	<p>
+		echo Start dumping processes on this server...</p>
+	<p>
+		CD %~dp0</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq rmngr.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a rmngr_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq rphost.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a rphost_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq ragent.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a ragent_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq ragent.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a ragent_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq httpd.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a httpd_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq w3wp.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a w3wp_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq 1cv8c.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a 1cv8c_%%a</p>
+	<p>
+		)</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq 1cv8.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		start /b procdump.exe -ma %%a 1cv8_%%a</p>
+	<p>
+		)</p>
+</blockquote>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h3>
+	Остановка службы 1С:Предприятие с очисткой временных файлов.</h3>
+<blockquote>
+	<p>
+		set LOG_FILE="scripts.log"</p>
+	<p>
+		set SERVICE_1C_NAME="1C:Enterprise 8.3 Server Agent (x86-64)"</p>
+	<p>
+		set SERVICE_RAS_NAME="1C:Enterprise 8.3 Remote Server"</p>
+	<p>
+		set CNTX_PATH="C:\srvinfo\reg_1541"</p>
+	<p>
+		set PFL_PATH="C:\ProgramData\1C\1cv8"</p>
+	<p>
+		set TEMP_PATH="C:\Windows\Temp"</p>
+	<p>
+		echo stop %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		sc stop %SERVICE_1C_NAME%</p>
+	<p>
+		sc stop %SERVICE_RAS_NAME%</p>
+	<p>
+		timeout 5</p>
+	<p>
+		taskkill /f /im "rphost.exe"</p>
+	<p>
+		taskkill /f /im "rmngr.exe"</p>
+	<p>
+		taskkill /f /im "ragent.exe"</p>
+	<p>
+		taskkill /f /im "ras.exe"</p>
+	<p>
+		timeout 5</p>
+	<p>
+		echo done stop %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		echo clean temp %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		DEL /Q /F /S %CNTX_PATH%\snccntx*</p>
+	<p>
+		DEL /Q /F %PFL_PATH%\*.pfl</p>
+	<p>
+		DEL /Q /F /S %TEMP_PATH%\*.*</p>
+	<p>
+		echo done clean temp %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+</blockquote>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h3>
+	Запуск службы 1С:Предприятие</h3>
+<blockquote>
+	<p>
+		set LOG_FILE="scripts.log"</p>
+	<p>
+		set SERVICE_1C_NAME="1C:Enterprise 8.3 Server Agent (x86-64)"</p>
+	<p>
+		set SERVICE_RAS_NAME="1C:Enterprise 8.3 Remote Server"</p>
+	<p>
+		echo start %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		sc start %SERVICE_1C_NAME%</p>
+	<p>
+		sc start %SERVICE_ RAS _NAME%</p>
+	<p>
+		echo done start %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+</blockquote>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h3>
+	Рестарт с очисткой временых файлов</h3>
+<blockquote>
+	<p>
+		set LOG_FILE="scripts.log"</p>
+	<p>
+		set SERVICE_1C_NAME="1C:Enterprise 8.3 Server Agent (x86-64)"</p>
+	<p>
+		set SERVICE_RAS_NAME="1C:Enterprise 8.3 Remote Server"</p>
+	<p>
+		set CNTX_PATH="C:\srvinfo\reg_1541"</p>
+	<p>
+		set PFL_PATH="C:\ProgramData\1C\1cv8"</p>
+	<p>
+		set TEMP_PATH="C:\Windows\Temp"</p>
+	<p>
+		echo stop %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		sc stop %SERVICE_1C_NAME%</p>
+	<p>
+		sc stop %SERVICE_RAS_NAME%</p>
+	<p>
+		timeout 5</p>
+	<p>
+		taskkill /f /im "rphost.exe"</p>
+	<p>
+		taskkill /f /im "rmngr.exe"</p>
+	<p>
+		taskkill /f /im "ragent.exe"</p>
+	<p>
+		taskkill /f /im "ras.exe"</p>
+	<p>
+		timeout 5</p>
+	<p>
+		echo done stop %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		echo clean temp %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		DEL /Q /F /S %CNTX_PATH%\snccntx*</p>
+	<p>
+		DEL /Q /F %PFL_PATH%\*.pfl</p>
+	<p>
+		DEL /Q /F /S %TEMP_PATH%\*.*</p>
+	<p>
+		echo done clean temp %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		echo start %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+	<p>
+		sc start %SERVICE_1C_NAME%</p>
+	<p>
+		sc start %SERVICE_ RAS _NAME%</p>
+	<p>
+		echo Service %SERVICE_1C_NAME% restarted at %DATE% %TIME% &gt;&gt; %TEMP_PATH%\%LOG_FILE%</p>
+</blockquote>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h3>
+	Аварийное завершение процесса rphost, который потребляет больше N Гб памяти</h3>
+<p>
+	N сильно зависит от вашей системы, нагрузки, конфигурации и т.д. В этом примере N = 8 Гб.</p>
+<blockquote>
+	<p>
+		@echo off</p>
+	<p>
+		REM MemLimit in bytes!</p>
+	<p>
+		REM MemLimit is 8 GB</p>
+	<p>
+		set MemLimit=8796093022208</p>
+	<p>
+		echo MemLimit is set %MemLimit% bytes</p>
+	<p>
+		for /f "usebackq tokens=2" %%a in (`tasklist /FO list /FI "IMAGENAME eq rphost.exe" ^| find /i "PID:"`) do (</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for /f "usebackq tokens=1" %%c&nbsp; in (`"wmic process where ProcessId=%%a get WorkingSetSize"`) do (&nbsp;</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SET "var="&amp;for /f "delims=0123456789" %%i in ("%%c") do set var=%%i</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if not defined var (</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if /I %%c GTR %MemLimit% (</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo Killing process rphost_%%a with Mem Usage %%c for breaking limit %MemLimit%</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; taskkill /F /PID %%a</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</p>
+	<p>
+		)</p>
+</blockquote>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+
+</div>
+
+<div class="bord">
+	<b>Дата создания:</b> 07.09.2015 07:09<br>
+</div>
+
+<script>formatMess();</script>
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+</body></html>
